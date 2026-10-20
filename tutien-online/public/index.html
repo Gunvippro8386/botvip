@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Tu Tiên Online</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud" hidden>
+  <div class="panel me">
+    <div class="row"><b id="meName">—</b><span id="meRealm" class="realm">—</span></div>
+    <div class="bar hp"><i id="hpBar"></i><span id="hpTxt">0/0</span></div>
+    <div class="bar qi"><i id="qiBar"></i><span id="qiTxt">0/0</span></div>
+    <div class="row small"><span>Linh thạch <b id="stones" class="gold">0</b></span><span>Lực <b id="atk">0</b></span><span>Diệt <b id="kills">0</b></span></div>
+  </div>
+
+  <button id="topBtn" class="btn small top-btn">Xếp hạng</button>
+  <div id="topPanel" class="panel top-panel" hidden>
+    <div class="row"><b>Thiên Bảng</b><button id="topClose" class="link">Đóng</button></div>
+    <ol id="topList"></ol>
+  </div>
+
+  <div class="panel chat">
+    <ul id="chatLog"></ul>
+    <form id="chatForm"><input id="chatInput" maxlength="150" placeholder="Nói gì đó với thiên hạ…" autocomplete="off"><button class="btn small">Gửi</button></form>
+  </div>
+
+  <div class="actions">
+    <button id="breakBtn" class="btn gold" hidden>Đột phá</button>
+    <button id="medBtn" class="btn">Tọa thiền</button>
+    <button id="atkBtn" class="btn red">Tấn công</button>
+  </div>
+  <div id="toast" class="toast" hidden></div>
+</div>
+
+<div id="login" class="overlay">
+  <form id="loginForm" class="panel login">
+    <div class="han">修仙</div>
+    <h1>Tu Tiên Online</h1>
+    <p class="muted">Nhập tên đạo hiệu. Tên mới sẽ tự tạo nhân vật.</p>
+    <label for="nameInput">Đạo hiệu</label>
+    <input id="nameInput" maxlength="16" autocomplete="username" required>
+    <label for="passInput">Mật khẩu</label>
+    <input id="passInput" type="password" autocomplete="current-password" required>
+    <p id="loginErr" class="err"></p>
+    <button class="btn gold">Nhập thế</button>
+    <p class="muted small">Di chuyển: chạm vào bản đồ, hoặc phím WASD / mũi tên. Phím F tấn công, M tọa thiền.</p>
+  </form>
+</div>
+<script src="client.js"></script>
+</body>
+</html>
