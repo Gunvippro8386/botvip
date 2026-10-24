@@ -1,0 +1,10 @@
+{
+  "name": "hoang-da",
+  "version": "0.1.0",
+  "description": "Game sinh tồn thế giới mở 2D chạy trên trình duyệt",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "ISC"
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Hoang Dã</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Bungee&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud" hidden>
+  <div class="panel stats">
+    <div class="stat hp"><span class="lbl">Máu</span><div class="bar"><i id="hpBar"></i></div><b id="hpTxt">100</b></div>
+    <div class="stat food"><span class="lbl">Đói</span><div class="bar"><i id="foodBar"></i></div><b id="foodTxt">100</b></div>
+    <div class="stat water"><span class="lbl">Khát</span><div class="bar"><i id="waterBar"></i></div><b id="waterTxt">100</b></div>
+  </div>
+
+  <div class="panel clock"><b id="dayTxt">Ngày 1</b><span id="timeTxt">07:00</span></div>
+
+  <div class="panel map">
+    <canvas id="minimap" width="96" height="96"></canvas>
+    <div id="where" class="where">Đồng cỏ</div>
+  </div>
+
+  <div class="corner-btns">
+    <button id="bagBtn" class="btn">Túi &amp; chế tạo <kbd>E</kbd></button>
+    <button id="menuBtn" class="btn ghost">Menu</button>
+  </div>
+
+  <ul id="log" class="log"></ul>
+  <div id="hint" class="hint" hidden></div>
+  <div id="hotbar" class="hotbar"></div>
+
+  <div id="stick" class="stick" hidden><i></i></div>
+  <button id="actBtn" class="act-btn">Đánh</button>
+</div>
+
+<div id="bag" class="panel sheet" hidden>
+  <div class="sheet-head">
+    <div class="tabs" role="tablist">
+      <button id="tabCraft" class="tab on" role="tab">Chế tạo</button>
+      <button id="tabInv" class="tab" role="tab">Túi đồ</button>
+    </div>
+    <button id="bagClose" class="btn ghost small">Đóng</button>
+  </div>
+  <p id="stationTxt" class="muted small"></p>
+  <div id="craftList" class="craft-list"></div>
+  <div id="invList" class="inv-grid" hidden></div>
+</div>
+
+<div id="menu" class="overlay">
+  <div class="panel title-card">
+    <h1>Hoang Dã</h1>
+    <p class="tagline">Thế giới tự sinh, đi mãi không hết. Kiếm nước, kiếm ăn, nhóm lửa trước khi trời tối.</p>
+    <div class="menu-btns">
+      <button id="resumeBtn" class="btn big" hidden>Tiếp tục</button>
+      <button id="continueBtn" class="btn big" hidden>Chơi tiếp</button>
+      <button id="newBtn" class="btn big ghost">Thế giới mới</button>
+    </div>
+    <label class="seed" for="seedInput">Mã thế giới <span class="muted">(để trống để chọn ngẫu nhiên)</span></label>
+    <input id="seedInput" maxlength="24" autocomplete="off" placeholder="vd: dao-hoang">
+    <p id="saveInfo" class="muted small"></p>
+    <details class="help">
+      <summary>Cách chơi</summary>
+      <ul>
+        <li><b>Máy tính:</b> WASD hoặc mũi tên để đi, bấm chuột vào cây, đá, thú để chặt và đánh. Phím Space làm việc với thứ gần nhất. E mở túi, phím số chọn đồ.</li>
+        <li><b>Điện thoại:</b> kéo nửa trái màn hình để đi, nút tròn bên phải để làm việc, hoặc chạm thẳng vào thứ muốn đánh.</li>
+        <li>Đứng cạnh nước rồi bấm làm việc để uống. Hái quả mọng, săn thỏ và hươu, nướng thịt bên lửa trại.</li>
+        <li>Ban đêm quỷ đêm xuất hiện. Chúng sợ lửa trại và không đi xuyên tường.</li>
+        <li>Đặt giường để hồi sinh tại chỗ khi gục ngã.</li>
+      </ul>
+    </details>
+  </div>
+</div>
+
+<div id="death" class="overlay" hidden>
+  <div class="panel title-card">
+    <h1 class="dead">Gục ngã</h1>
+    <p id="deathTxt" class="tagline"></p>
+    <button id="respawnBtn" class="btn big">Hồi sinh</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
